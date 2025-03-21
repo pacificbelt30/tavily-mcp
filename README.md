@@ -55,6 +55,32 @@ npx -y tavily-mcp@0.1.3
 
 Although you can launch a server on its own, it's not particularly helpful in isolation. Instead, you should integrate it into an MCP client. Below is an example of how to configure the Claude Desktop app to work with the tavily-mcp server.
 
+## Tavily MCP server installation ⚡
+
+To install the tavily-mcp server, you can use the following methods:
+1. Docker installation
+
+### 1. Build docker image 
+
+```bash
+$ git clone https://pacificbelt30/tavily-mcp.git
+$ docker build -t tavily-mcp .
+```
+
+### 2. Running with Docker
+Set claude\_desktop\_config.json as follows
+```json
+{
+  "mcpServers": {
+    "tavily-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "TAVILY_API_KEY=your_api_key_here", "tavily-mcp"]
+    }
+  }
+}
+```
+
+
 
 ## Configuring MCP Clients ⚙️
 
